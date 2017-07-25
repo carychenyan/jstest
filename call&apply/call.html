@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+        var person={
+        	name:'lili',
+        	age:23,
+        	say:function (argument) {
+        		 console.log("我的名字是："+this.name+",我的年龄是："+this.age);
+        	}
+        };
+        var car={
+        	name:'tesla',
+        	age:2
+        };
+        person.say.call(car);  /*可以实现继承，就相当于改变了容器作用域；apply第二个参数必须是数组*/
+        person.say.apply(car);      
+	</script>
+</body>
+</html>
