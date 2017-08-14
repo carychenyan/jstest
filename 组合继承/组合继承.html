@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+       function Person(name){
+        if(name!==undefined){
+          this.name=name;
+        }else{
+          this.name='lili'; 
+        }       	
+       	 this.age=23;
+         // this.say=function(){
+         //  console.log(121);
+         // };
+       }
+       Person.prototype.say=function(){
+           console.log("我的名字叫："+this.name+"我的年龄是"+this.age);
+       };
+
+       function Man(name){
+         Person.call(this,name);//继承属性方法
+         this.job='student';
+       }
+       //继承原型方法
+       Man.prototype=new Person();
+       Man.prototype.constructor=Man;
+       //子类增加方法
+       Man.prototype.sayAge=function(){
+        alert(this.age);
+       };
+
+       var man1=new Man('bob');
+       //console.log(man1.name);
+       man1.say();
+	</script>
+</body>
+</html>
